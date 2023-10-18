@@ -2,18 +2,18 @@
   "notes": [
     {
       "id": 1,
-      "body": "Today's task\n\n- Eat Meat\n Drink Water",
-      "updated": "2023-10-16T13:49:02.078653Z"
+      "body": "Today's task\n\n-Eat Meat\n-Drink water\n-Sleep fast\n",
+      "updated": "2023-10-18T17:23:12.945Z"
     },
     {
-      "id": 2,
-      "body": "Saturday's task\n\n- Eat Meat\n Drink Water",
-      "updated": "2023-10-12T13:49:02.078653Z"
-    },
-    {
+      "body": "From ChatGPT,\n\nI wanted to take a moment to express just how much you mean to me. You are the sunshine that brightens my darkest days, the laughter that warms my heart, and the rock on which I can always lean. ",
       "id": 3,
-      "body": "Tomorrow's task\n\n- Eat Meat\n Drink Water",
-      "updated": "2023-10-14T13:49:02.078653Z"
+      "updated": "2023-10-18T17:20:37.748Z"
+    },
+    {
+      "body": "Hey, its been a while.\n\nHow are you?\n\nHope you doing good.\n\nYours sincerely,\nElma.",
+      "updated": "2023-10-18T17:22:15.930Z",
+      "id": 5
     }
   ]
 }

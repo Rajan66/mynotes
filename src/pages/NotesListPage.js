@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 // import notes from '../assets/data'
 import ListItem from '../components/ListItem'
+import AddButton from '../components/AddButton'
 
 const NotesListPage = () => {
     let [notes, setNotes] = useState([])
 
     useEffect(() => {
         getNotes()
-    },[])
+    }, [])
 
     let getNotes = async () => {
         let response = await fetch('http://localhost:8000/notes/')
@@ -30,6 +31,7 @@ const NotesListPage = () => {
 
                 ))}
             </div>
+            <AddButton />
         </div>
     )
 }

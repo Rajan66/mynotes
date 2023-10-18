@@ -1,22 +1,37 @@
-import React from 'react'
-import notes from '../assets/data'
+import React, { useState, useEffect } from 'react'
+// import notes from '../assets/data'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg'
 
-const NotePage = ({ match }) => {
-    let { id } = useParams()
+const NotePage = () => {
+    const { id } = useParams()
+    let [note, setNote] = useState(null)
+
+    useEffect(() => {
+        getNote()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [id])
+
+    let getNote = async () => {
+        let response = await fetch(`http://localhost:8000/notes/${id}`)
+        let data = await response.json()
+        setNote(data)
+    }
     console.log(id)
-    let note = notes.find(note => note.id === Number(id))
-
+    console.log(note)
     return (
         <div className='note'>
             <div className='note-header'>
                 <h3>
-                    <Link>
+                    <Link to='/'>
+                        <ArrowLeft />
                     </Link>
                 </h3>
             </div>
-            <p>{note?.body}</p>
+            <textarea value={note?.body}>
+
+            </textarea>
         </div>
     )
 }

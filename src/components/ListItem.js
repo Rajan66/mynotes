@@ -34,7 +34,6 @@ let getContent = (note) => {
 
 
 const ListItem = ({ note }) => {
-    console.log(getTime(note))
     return (
 
         <Link to={`/note/${note.id}`}>

@@ -22,13 +22,12 @@ const NotePage = () => {
     }
 
     let createNote = async () => {
-        console.log('hie')
         await fetch(`http://localhost:8000/notes/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ ...note, 'updated': new Date() })
+              body: JSON.stringify({ ...note, 'updated': new Date() })
         })
     }
 

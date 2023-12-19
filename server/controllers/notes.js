@@ -1,6 +1,3 @@
-// const sequelize = require("sequelize")
-// const DataTypes = require("mysql2")
-// const Notes = require('../models/Notes')(sequelize, DataTypes);
 const Notes = require('../models').Notes
 
 const getNotes = async (req, res) => {
@@ -17,7 +14,7 @@ const createNote = async (req, res) => {
     const { id, body } = req.body
     try {
         const note = await Notes.create({ id, body })
-        console.log(note)
+        console.log(body)
         res.status(201).json(note)
     } catch (error) {
         res.status(404).json({ message: error.message })
@@ -26,7 +23,6 @@ const createNote = async (req, res) => {
 
 const deleteNote = async (req, res) => {
     const { id } = req.params
-
     try {
         const note = await Notes.findByPk(id)
         await note.destroy()
@@ -40,8 +36,8 @@ const updateNote = async (req, res) => {
     const { id } = req.params
     const { body } = req.body
     try {
-        // const note = await Notes.findByPk(id)
-        const note = await Notes.update(body, { where: { id: id } })
+        const note = await Notes.findByPk(id)
+        await note.update({ body: body })
         res.status(200).json(note)
     } catch (error) {
         res.status(404).json({ message: error.message })

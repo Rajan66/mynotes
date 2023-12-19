@@ -1,14 +1,13 @@
 const express = require("express")
 const dotenv = require("dotenv")
+const bodyParser = require("body-parser")
 const db = require("./models")
 const notesRoutes = require("./routes/notes")
 
 const app = express()
 dotenv.config
 // Middleware that helps parse json bodies in the request object
-app.use(express.json())
-
-
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
 
 
 const PORT = process.env.PORT || 5000

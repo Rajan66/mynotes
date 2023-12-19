@@ -11,10 +11,13 @@ const NotesListPage = () => {
     }, [])
 
     let getNotes = async () => {
-       
-        let response = await fetch('http://localhost:5000/notes')
-        let data = await response.json()
-        setNotes(data)
+        try {
+            let response = await fetch('http://localhost:5000/notes');
+            let data = await response.json();
+            setNotes(data);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
     }
 
     return (

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 // import notes from '../assets/data'
 import { useParams, useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg'
+import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg'  
 
 const NotePage = () => {
     const { id } = useParams()
@@ -27,13 +27,13 @@ const NotePage = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-              body: JSON.stringify({ ...note, 'updatedAt': new Date() })
+            body: JSON.stringify({ ...note, 'updatedAt': new Date() })
         })
     }
 
     let updateNote = async () => {
         await fetch(`http://localhost:5000/notes/${id}`, {
-            method: 'PUT',
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -53,7 +53,7 @@ const NotePage = () => {
     }
 
 
-    let handleSubmit = () => {
+    let handleSubmit = (e) => {
         if (id !== 'new' && !note.body) {
             deleteNote()
         } else if (id !== 'new') {

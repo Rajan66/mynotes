@@ -10,6 +10,17 @@ const getNotes = async (req, res) => {
     }
 }
 
+const getNote = async (req, res) => {
+    const { id } = req.params
+    try {
+        const note = await Notes.findByPk(id)
+        console.log(note)
+        res.status(200).json(note)
+    } catch (error) {
+        res.status(404).json({ message: error.message })
+    }
+}
+
 const createNote = async (req, res) => {
     const { id, body } = req.body
     try {
@@ -44,11 +55,10 @@ const updateNote = async (req, res) => {
     }
 }
 
-
-
 module.exports = {
     getNotes,
     createNote,
     deleteNote,
-    updateNote
+    updateNote,
+    getNote
 }

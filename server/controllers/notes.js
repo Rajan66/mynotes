@@ -1,4 +1,7 @@
-const { Notes } = require('../models/Notes')
+// const sequelize = require("sequelize")
+// const DataTypes = require("mysql2")
+// const Notes = require('../models/Notes')(sequelize, DataTypes);
+const Notes = require('../models/Notes')
 
 const getNotes = async (req, res) => {
     try {

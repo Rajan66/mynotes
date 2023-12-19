@@ -1,7 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
     const Notes = sequelize.define("Notes", {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
             allowNull: false,
             validate: {
@@ -9,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
             },
         },
         body: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT('long'),
             allowNull: false,
             validate: {
                 notEmpty: true

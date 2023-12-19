@@ -3,11 +3,10 @@ const dotenv = require("dotenv")
 
 const app = express()
 
-
-
+// Middleware that helps parse json bodies in the request object
 app.use(express.json())
 
-PORT = 5000
+const PORT = process.env.PORT || 5000
 
 app.use('/', (req, res) => {
     res.send('Server is running')
